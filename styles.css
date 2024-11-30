@@ -1,0 +1,400 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 10;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Estructura básica de secciones */
+.section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+/* Fondo de nubes y colores de sección */
+#section1 {
+    background: linear-gradient(to bottom, #87CEFA, #00BFFF);
+}
+
+#section2 {
+    background: linear-gradient(to bottom, #00BFFF, #1E90FF);
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+}
+
+#section3 {
+    background: linear-gradient(to bottom, #1E90FF, #4169E1);
+}
+
+/* Efecto de nubes en capas */
+.section::before {
+    content: "";
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    width: 100%;
+    height: 26vh;
+    background-image: url('nube.png');
+    background-size: contain;
+    opacity: 0.5;
+    animation: moveClouds 45s linear infinite;
+}
+
+/* Animación para el movimiento de las nubes */
+@keyframes moveClouds {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#section3::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12vh;
+    background-image: url('suelo.png');
+    background-size: contain;
+}
+
+/* Estilos de botones */
+.btn {
+    padding: 2vh 4vw;
+    font-size: 2em;
+    font-weight: bold;
+    color: #1E90FF;
+    background-color: white;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #1E90FF;
+    border-color: white;
+}
+
+.back-button {
+    position: absolute;
+    top: 4vh;
+    left: 4vw;
+}
+
+.reserve-button {
+    position: absolute;
+    bottom: 4vh;
+    left: 4vw;
+}
+
+/* Sección 1 - Contenido centrado */
+#section1 .content-container {
+    text-align: center;
+}
+
+#section1 h1 {
+    font-size: 5em;
+    font-weight: bold;
+}
+
+#section1 p {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+.square-box {
+    background: linear-gradient(to bottom, #87CEFA, #00BFFF);
+    padding: 10vh 10vw;
+    border: 1vh solid white;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.info-link {
+    font-size: 2em;
+    text-decoration: none;
+    color: white;
+}
+
+.info-link:hover {
+    color: #00BFFF;
+    text-shadow: 1px 0px 0px white,
+        0px 1px 0px white,
+        -1px 0px 0px white,
+        0px -1px 0px white;
+
+}
+
+/* Sección 2 - Selección de restaurantes */
+.restaurant-selector {
+    width: 25vw;
+    padding: 5vh;
+    text-align: center;
+    color: white;
+}
+
+.restaurant-selector h2 {
+    font-size: 5em;
+    margin-bottom: 5vh;
+}
+
+.restaurants-scroll {
+    width: 50vw;
+    max-height: 80vh;
+    padding-left: 10vw;
+    margin-right: 5vw;
+    margin-left: 10vw;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2vh 2vw;
+    border-radius: 10px;
+}
+
+.restaurant-card {
+    background-color: white;
+    color: #20252a;
+    padding: 2vh 2vw;
+    margin: 10px 0;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-card img {
+    width: 12.5vh;
+    height: 12.5vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.restaurant-card h3 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.restaurant-card p {
+    font-size: 1em;
+    color: #333;
+}
+
+.menu-link,
+.restaurant-card .btn {
+    font-size: 1em;
+    padding: 2vh 2vw;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #1E90FF;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    margin-left: auto;
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+    color: white;
+    background-color: #1E90FF;
+    border-color: white;
+}
+
+/* Scroll personalizado */
+.restaurants-scroll::-webkit-scrollbar {
+    width: 1vw;
+}
+
+.restaurants-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5vw;
+}
+
+.restaurants-scroll::-webkit-scrollbar-thumb {
+    background-color: #1E90FF;
+    border-radius: 1vw;
+    border: 0.1vw solid rgba(255, 255, 255, 0.3);
+}
+
+/* Sección 3 - Formulario de reserva */
+#section3 h2 {
+    font-size: 3em;
+    color: white;
+    margin-bottom: 2vh;
+}
+
+#reservation-form {
+    background-color: white;
+    padding: 2.5vh 2.5vw;
+    border-radius: 1vw;
+    width: 25vw;
+    box-shadow: 0 1vh 1vw rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25vh;
+}
+
+#reservation-form label {
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: #1E90FF;
+}
+
+#reservation-form input,
+#reservation-form select {
+    padding: 10px;
+    font-size: 1.25em;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#reservation-form input:focus,
+#reservation-form select:focus {
+    border-color: #4169E1;
+}
+
+#reservation-form button {
+    align-self: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="tel"] {
+    color: #333;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    color: #1E90FF;
+}
+
+
+/* Circle */
+#circle {
+    position: absolute;
+    top: 80vh;
+    left: 45vw;
+    transform: translate(-50%, -50%);
+    width: 10vw;
+    height: 10vw;
+    border-radius: 5%;
+    background-color: white;
+    display: none;
+    z-index: 1001;
+    animation: expandAndColor 4s ease-in-out forwards;
+}
+
+@keyframes expandAndColor {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(1) translateY(-50vh);
+        background-color: #00BFFF;
+        opacity: 1;
+        border-radius: 50%;
+        /* Image appears here */
+        background-image: url(Chulito.png);
+        background-size: contain; /* Adjust image size as needed */
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    50% {
+        /* Maintain the image and other styles */
+        transform: scale(1) translateY(-50vh);
+        background-color: #00BFFF;
+        opacity: 1;
+        border-radius: 50%;
+        background-image: url(Chulito.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    75% {
+        /* Maintain the image and other styles */
+        transform: scale(1) translateY(-50vh);
+        background-color: #00BFFF;
+        opacity: 1;
+        border-radius: 50%;
+        background-image: url(Chulito.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    100% {
+        transform: scale(0) translateY(-100vh);
+        opacity: 0;
+    }
+}
+/* Estilo para el formulario */
+.form-container {
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
+}
+
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.styled-form input, .styled-form button, .styled-form textarea, .styled-form select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.styled-form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+/* Oculto por defecto */
+.hidden {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Mostrar con transición */
+.show {
+    display: block;
+    opacity: 1;
+}

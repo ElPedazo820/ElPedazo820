@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>820 - Lo Más Rico del Pedazo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Micro+5&family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sección 1: Inicio -->
+    <section id="section1" class="section">
+        <div class="square-box">
+            <h1>820</h1>
+            <p>Lo Más Rico del Pedazo</p>
+            <button class="btn" onclick="scrollToSection('section2')">Reservar</button>
+        </div>
+        <a href="ourinformation.html" class="info-link">👉 Nuestra Información</a>
+    </section>
+
+    <!-- Sección 2: Selección de Restaurante -->
+    <section id="section2" class="section">
+        <button class="btn back-button" onclick="scrollToSection('section1')">Volver</button>
+        <div class="restaurant-selector">
+            <h2>Escoge Tu Restaurante</h2>
+            <div class="restaurants-scroll">
+                <!-- Tarjetas de Restaurantes se cargarán dinámicamente desde JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Formulario de Reserva -->
+    <section id="section3" class="section">
+        <h2>Escogiste el Mejor 😉</h2>
+
+        <!-- Formulario del correo -->
+<section id="email-input-section" class="form-container">
+    <form id="user-email-form" class="styled-form">
+        <label for="user-email">Introduce tu correo:</label>
+        <input type="email" id="user-email" name="user-email" required placeholder="tuemail@example.com">
+        <button type="submit" class="btn">Continuar</button>
+    </form>
+</section>
+
+<!-- Formulario secundario (inicialmente oculto) -->
+<section id="reservation-form-section" class="form-container hidden">
+    <form id="reservation-form" action="https://formsubmit.co/darwinarguello10@gmail.com" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+        <input type="hidden" name="_subject" value="Nueva solicitud de reserva">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" id="hidden-user-email" name="user-email">
+
+        <label for="restaurant-select">Restaurante:</label>
+        <select id="restaurant-select" name="restaurant" required>
+            <!-- Opciones dinámicas generadas desde JS -->
+        </select>
+
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="date">Fecha:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Hora:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="phone">Teléfono:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="message">Mensaje adicional:</label>
+        <textarea id="message" name="message" placeholder="Detalles adicionales..."></textarea>
+
+        <button type="submit" class="btn">Reservar</button>
+    </form>
+</section>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
